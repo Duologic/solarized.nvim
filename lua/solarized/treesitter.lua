@@ -9,13 +9,13 @@ local syntax = {
     ['@error']                 = { fg = solarized.error, style = 'bold' },     -- syntax/parser errors
     ['@none']                  = { fg = solarized.none, bg = solarized.none }, -- completely disable the highlight
     ['@preproc']               = { fg = solarized.yellow },                    -- various preprocessor directives & shebangs
-    ['@define']                = { fg = solarized.gray },                      -- preprocessor definition directives
+    ['@define']                = { fg = solarized.paleblue, },                 -- preprocessor definition directives
     ['@operator']              = { fg = solarized.cyan },                      -- symbolic operators (e.g. `+` / `*`)
 
     -- Punctuation
-    ['@punctuation.delimiter'] = { fg = solarized.black }, -- delimiters (e.g. `= {}, --` / `.` / `,`)
-    ['@punctuation.bracket']   = { fg = solarized.black }, -- brackets (e.g. `()` / `{},` / `[]`)
-    ['@punctuation.special']   = { fg = solarized.black }, -- special symbols (e.g. `{},` in string interpolation)
+    ['@punctuation.delimiter'] = { fg = solarized.black },                -- delimiters (e.g. `= {}, --` / `.` / `,`)
+    ['@punctuation.bracket']   = { fg = solarized.black },                -- brackets (e.g. `()` / `{},` / `[]`)
+    ['@punctuation.special']   = { fg = solarized.cyan, style = 'bold' }, -- special symbols (e.g. `{},` in string interpolation)
 
     -- Literals
     ['@string']                = { fg = solarized.green },                   -- string literals
@@ -32,21 +32,21 @@ local syntax = {
     ['@float']                 = { fg = solarized.orange },                  -- floating-point number literals
 
     -- Functions
-    ['@function']              = { fg = solarized.yellow, style = 'bold' },   -- function definitions
-    ['@function.builtin']      = { fg = solarized.yellow, style = 'italic' }, -- built-in functions
-    ['@function.call']         = { fg = solarized.yellow },                   -- function calls
-    ['@function.macro']        = { fg = solarized.blue },                     -- preprocessor macros
+    ['@function']              = { fg = solarized.blue, style = 'bold' },   -- function definitions
+    ['@function.builtin']      = { fg = solarized.blue, style = 'italic' }, -- built-in functions
+    ['@function.call']         = { fg = solarized.blue },                   -- function calls
+    ['@function.macro']        = { fg = solarized.blue },                   -- preprocessor macros
 
-    ['@method']                = { fg = solarized.yellow, style = 'bold' },   -- method definitions
-    ['@method.call']           = { fg = solarized.yellow },                   -- method calls
+    ['@method']                = { fg = solarized.blue, style = 'bold' },   -- method definitions
+    ['@method.call']           = { fg = solarized.blue },                   -- method calls
 
-    ['@constructor']           = { fg = solarized.yellow },                   -- constructor calls and definitions
-    ['@parameter']             = { fg = solarized.blue },                     -- parameters of a function
+    ['@constructor']           = { fg = solarized.yellow },                 -- constructor calls and definitions
+    ['@parameter']             = { fg = solarized.violet },                 -- parameters of a function
 
     -- Keywords
     ['@keyword']               = { fg = solarized.green },                  -- various keywords
     ['@keyword.coroutine']     = { fg = solarized.green },                  -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-    ['@keyword.function']      = { fg = solarized.yellow, style = 'bold' }, -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+    ['@keyword.function']      = { fg = solarized.blue, style = 'bold' },   -- keywords that define a function (e.g. `func` in Go, `def` in Python)
     ['@keyword.operator']      = { fg = solarized.cyan },                   -- operators that are English words (e.g. `and` / `or`)
     ['@keyword.return']        = { fg = solarized.green },                  -- keywords like `return` and `yield`
 
@@ -67,7 +67,7 @@ local syntax = {
 
     ['@storageclass']          = { fg = solarized.cyan },                     -- modifiers that affect storage in memory or life-time
     ['@attribute']             = { fg = solarized.purple },                   -- attribute annotations (e.g. Python decorators)
-    ['@field']                 = { fg = solarized.gray },                     -- object and struct fields
+    ['@field']                 = { fg = solarized.brightorange },             -- object and struct fields
     ['@property']              = { fg = solarized.gray },                     -- similar to `@field`
 
     -- Identifiers
@@ -101,7 +101,7 @@ local syntax = {
 
     ['@text.todo']             = { fg = solarized.purple, style = 'bold' },        -- todo notes
     ['@text.note']             = { fg = solarized.text },                          -- info notes
-    ['@text.warning']          = { fg = solarized.purple },                        -- warning notes
+    ['@text.warning']          = { fg = solarized.purple, style = 'underline' },   -- warning notes
     ['@text.danger']           = { fg = solarized.red, style = 'bold' },           -- danger/error notes
 
     ['@text.diff.add']         = { fg = solarized.green },                         -- added text (for diff files)

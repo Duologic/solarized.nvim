@@ -93,6 +93,8 @@ end
 
 theme.loadEditor = function()
     -- Editor highlight groups
+    --
+    local search = { fg = solarized.highlight, bg = solarized.black, style = 'reverse' }
 
     local editor = {
         NormalFloat       = { fg = solarized.fg, bg = solarized.float },                       -- normal text and background color
@@ -109,9 +111,9 @@ theme.loadEditor = function()
         ErrorMsg          = { fg = solarized.none },
         Folded            = { fg = solarized.disabled, bg = solarized.none, style = 'italic' },
         FoldColumn        = { fg = solarized.blue },
-        IncSearch         = { fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
+        IncSearch         = search,
         LineNr            = { fg = solarized.line_numbers, bg = solarized.bg_alt },
-        CursorLineNr      = { fg = solarized.accent },
+        CursorLineNr      = { fg = solarized.accent, bg = solarized.cursorline },
         MatchParen        = { fg = solarized.purple, bg = solarized.bg_alt, style = 'bold' },
         ModeMsg           = { fg = solarized.accent },
         MoreMsg           = { fg = solarized.accent },
@@ -121,9 +123,9 @@ theme.loadEditor = function()
         PmenuSbar         = { fg = solarized.text, bg = solarized.contrast },
         PmenuThumb        = { fg = solarized.fg, bg = solarized.accent },
         Question          = { fg = solarized.green },
-        QuickFixLine      = { fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
-        qfLineNr          = { fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
-        Search            = { fg = solarized.highlight, bg = solarized.white, style = 'reverse' },
+        QuickFixLine      = search,
+        qfLineNr          = search,
+        Search            = search,
         SpecialKey        = { fg = solarized.yellow },
         SpellBad          = { fg = solarized.red, bg = solarized.none, style = 'italic,undercurl' },
         SpellCap          = { fg = solarized.blue, bg = solarized.none, style = 'italic,undercurl' },
@@ -142,7 +144,7 @@ theme.loadEditor = function()
         WarningMsg        = { fg = solarized.purple },
         WildMenu          = { fg = solarized.orange, bg = solarized.none, style = 'bold' },
         CursorColumn      = { fg = solarized.none, bg = solarized.active },
-        CursorLine        = { fg = solarized.none, bg = solarized.bg_alt },
+        CursorLine        = { fg = solarized.none, bg = solarized.cursorline },
         ToolbarLine       = { fg = solarized.fg, bg = solarized.bg_alt },
         ToolbarButton     = { fg = solarized.fg, bg = solarized.none, style = 'bold' },
         NormalMode        = { fg = solarized.accent, bg = solarized.none, style = 'reverse' },
@@ -172,14 +174,14 @@ theme.loadEditor = function()
         editor.SignColumn = { fg = solarized.fg, bg = solarized.none }
     else
         editor.Normal     = { fg = solarized.fg, bg = solarized.bg } -- normal text and background color
-        editor.SignColumn = { fg = solarized.fg, bg = solarized.bg }
+        editor.SignColumn = { fg = solarized.fg, bg = solarized.bg_alt }
     end
 
     -- Remove window split borders
     if vim.g.solarized_borders == true then
         editor.VertSplit = { fg = solarized.border }
     else
-        editor.VertSplit = { fg = solarized.bg }
+        editor.VertSplit = { fg = solarized.bg_alt }
     end
 
     return editor
@@ -246,6 +248,8 @@ theme.loadTreeSitter = function()
         TSTitle                  = ts['@text.title'],
         TSLiteral                = ts['@text.literal'],
         TSURI                    = ts['@text.uri'],
+        TSDefinition             = { fg = solarized.white, bg = solarized.link },
+        TSDefinitionUsage        = { fg = solarized.white, bg = solarized.link },
 
         ['@lsp.type.namespace']  = ts['@namespace'],
         ['@lsp.type.type']       = ts['@type'],
@@ -373,15 +377,15 @@ theme.loadPlugins = function()
         GitGutterDelete             = { fg = solarized.red },    -- diff mode: Deleted line |diff.txt|
 
         -- GitSigns
-        GitSignsAdd                 = { fg = solarized.green },  -- diff mode: Added line |diff.txt|
-        GitSignsAddNr               = { fg = solarized.green },  -- diff mode: Added line |diff.txt|
-        GitSignsAddLn               = { fg = solarized.green },  -- diff mode: Added line |diff.txt|
-        GitSignsChange              = { fg = solarized.purple }, -- diff mode: Changed line |diff.txt|
-        GitSignsChangeNr            = { fg = solarized.purple }, -- diff mode: Changed line |diff.txt|
-        GitSignsChangeLn            = { fg = solarized.purple }, -- diff mode: Changed line |diff.txt|
-        GitSignsDelete              = { fg = solarized.red },    -- diff mode: Deleted line |diff.txt|
-        GitSignsDeleteNr            = { fg = solarized.red },    -- diff mode: Deleted line |diff.txt|
-        GitSignsDeleteLn            = { fg = solarized.red },    -- diff mode: Deleted line |diff.txt|
+        GitSignsAdd                 = { fg = solarized.white, bg = solarized.green },  -- diff mode: Added line |diff.txt|
+        GitSignsAddNr               = { fg = solarized.green },                        -- diff mode: Added line |diff.txt|
+        GitSignsAddLn               = { fg = solarized.green },                        -- diff mode: Added line |diff.txt|
+        GitSignsChange              = { fg = solarized.white, bg = solarized.violet }, -- diff mode: Changed line |diff.txt|
+        GitSignsChangeNr            = { fg = solarized.purple },                       -- diff mode: Changed line |diff.txt|
+        GitSignsChangeLn            = { fg = solarized.purple },                       -- diff mode: Changed line |diff.txt|
+        GitSignsDelete              = { fg = solarized.red, bg = solarized.bg_alt },   -- diff mode: Deleted line |diff.txt|
+        GitSignsDeleteNr            = { fg = solarized.red },                          -- diff mode: Deleted line |diff.txt|
+        GitSignsDeleteLn            = { fg = solarized.red },                          -- diff mode: Deleted line |diff.txt|
 
         -- Telescope
         TelescopePromptBorder       = { fg = solarized.cyan },

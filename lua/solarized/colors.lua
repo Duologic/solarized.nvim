@@ -13,16 +13,20 @@ local solarized = {
     white        = '#eee8d5',
     gray         = '#073642',
     black        = '#002b36',
+
+    magenta      = '#d33682',
     red          = '#dc322f',
-    green        = '#859900',
+    orange       = '#cb4b16',
     yellow       = '#b58900',
-    paleblue     = '#586e75',
+    --green        = '#859900',
     cyan         = '#2aa198',
     blue         = '#268bd2',
-    purple       = '#6c71c4',
-    orange       = '#cb4b16',
-    magenta      = '#d33682',
     violet       = '#6c71c4',
+
+    brightorange = '#D5890A',
+    green        = '#719e07',
+    paleblue     = '#586e75',
+    purple       = '#802F80',
 
     bg_light     = bases['base3'],
     bg_light_alt = bases['base2'],
@@ -32,19 +36,22 @@ local solarized = {
     text_light   = bases['base1'],
     fg_dark      = bases['base00'],
     text_dark    = bases['base01'],
-    comments     = '#657b83',
-    selection    = '#d3cfc1',
-    contrast     = '#002b36',
-    active       = '#d8ccc4',
-    border       = '#002b36',
-    line_numbers = '#839496',
-    highlight    = '#d8ccc4',
-    disabled     = '#073642',
-    cursor       = '#268bd2',
-    accent       = '#073642',
 
-    error        = '#dc322f',
-    link         = '#2aa198',
+    comments     = '#657b83', -- base00
+    selection    = '#d3cfc1',
+    contrast     = '#002b36', -- base03
+    active       = '#d8ccc4', -- highlight
+    border       = '#002b36', -- base03
+    line_numbers = '#839496', -- base0
+    highlight    = '#d8ccc4', -- active
+    -- disabled     = '#073642', -- base02
+    disabled     = '#7D7C3B',
+    cursor       = '#268bd2', -- blue
+    accent       = '#073642', -- base02
+    cursorline   = '#FFFFAF',
+
+    error        = '#dc322f', -- red
+    link         = '#2aa198', -- cyan
 
     none         = 'NONE'
 }
