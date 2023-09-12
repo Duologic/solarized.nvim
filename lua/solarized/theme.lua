@@ -40,15 +40,17 @@ theme.loadSyntax = function()
         Error               = ts['@error'],                 -- any erroneous construct
         Todo                = ts['@text.todo'],             -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-        htmlLink            = { fg = solarized.link, style = 'underline' },
-        htmlH1              = { fg = solarized.cyan, style = 'bold' },
-        htmlH2              = { fg = solarized.red, style = 'bold' },
-        htmlH3              = { fg = solarized.green, style = 'bold' },
-        htmlH4              = { fg = solarized.purple, style = 'bold' },
-        htmlH5              = { fg = solarized.yellow, style = 'bold' },
-        markdownH1          = { fg = solarized.cyan, style = 'bold' },
-        markdownH2          = { fg = solarized.red, style = 'bold' },
-        markdownH3          = { fg = solarized.green, style = 'bold' },
+        htmlLink            = ts['@text.uri'],
+        htmlH1              = ts['@text.title.1'],
+        htmlH2              = ts['@text.title.2'],
+        htmlH3              = ts['@text.title.3'],
+        htmlH4              = ts['@text.title.4'],
+        htmlH5              = ts['@text.title.5'],
+        markdownH1          = ts['@text.title.1'],
+        markdownH2          = ts['@text.title.2'],
+        markdownH3          = ts['@text.title.3'],
+        markdownH4          = ts['@text.title.4'],
+        markdownH5          = ts['@text.title.5'],
         markdownH1Delimiter = { fg = solarized.cyan },
         markdownH2Delimiter = { fg = solarized.red },
         markdownH3Delimiter = { fg = solarized.green },
@@ -94,7 +96,7 @@ end
 theme.loadEditor = function()
     -- Editor highlight groups
     --
-    local search = { fg = solarized.highlight, bg = solarized.black, style = 'reverse' }
+    local search = { fg = solarized.black, bg = solarized.highlight }
 
     local editor = {
         NormalFloat       = { fg = solarized.fg, bg = solarized.float },                       -- normal text and background color
@@ -127,10 +129,10 @@ theme.loadEditor = function()
         qfLineNr          = search,
         Search            = search,
         SpecialKey        = { fg = solarized.yellow },
-        SpellBad          = { fg = solarized.red, bg = solarized.none, style = 'italic,undercurl' },
-        SpellCap          = { fg = solarized.blue, bg = solarized.none, style = 'italic,undercurl' },
-        SpellLocal        = { fg = solarized.cyan, bg = solarized.none, style = 'italic,undercurl' },
-        SpellRare         = { fg = solarized.yellow, bg = solarized.none, style = 'italic,undercurl' },
+        SpellBad          = { sp = solarized.error, style = 'italic,undercurl' },
+        SpellCap          = { sp = solarized.blue, style = 'italic,undercurl' },
+        SpellLocal        = { sp = solarized.cyan, style = 'italic,undercurl' },
+        SpellRare         = { sp = solarized.yellow, style = 'italic,undercurl' },
         StatusLine        = { fg = solarized.fg, bg = solarized.contrast },
         StatusLineNC      = { fg = solarized.text, bg = solarized.disabled },
         StatusLineTerm    = { fg = solarized.fg, bg = solarized.contrast },
@@ -170,10 +172,10 @@ theme.loadEditor = function()
 
     --Set transparent background
     if vim.g.solarized_disable_background == true then
-        editor.Normal     = { fg = solarized.fg, bg = solarized.none } -- normal text and background color
+        editor.Normal     = { fg = solarized.black, bg = solarized.none } -- normal text and background color
         editor.SignColumn = { fg = solarized.fg, bg = solarized.none }
     else
-        editor.Normal     = { fg = solarized.fg, bg = solarized.bg } -- normal text and background color
+        editor.Normal     = { fg = solarized.black, bg = solarized.bg } -- normal text and background color
         editor.SignColumn = { fg = solarized.fg, bg = solarized.bg_alt }
     end
 
@@ -248,8 +250,8 @@ theme.loadTreeSitter = function()
         TSTitle                  = ts['@text.title'],
         TSLiteral                = ts['@text.literal'],
         TSURI                    = ts['@text.uri'],
-        TSDefinition             = { fg = solarized.white, bg = solarized.link },
-        TSDefinitionUsage        = { fg = solarized.white, bg = solarized.link },
+        TSDefinition             = { fg = solarized.black, bg = solarized.highlight },
+        TSDefinitionUsage        = { fg = solarized.black, bg = solarized.highlight },
 
         ['@lsp.type.namespace']  = ts['@namespace'],
         ['@lsp.type.type']       = ts['@type'],

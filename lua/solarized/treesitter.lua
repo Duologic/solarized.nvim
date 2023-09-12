@@ -71,15 +71,16 @@ local syntax = {
     ['@property']              = { fg = solarized.gray },                     -- similar to `@field`
 
     -- Identifiers
-    ['@variable']              = { fg = solarized.gray },                     -- various variable names
-    ['@variable.builtin']      = { fg = solarized.purple, style = 'italic' }, -- built-in variable names (e.g. `this`)
+    ['@variable']              = { fg = solarized.gray },                       -- various variable names
+    ['@variable.builtin']      = { fg = solarized.purple, style = 'italic' },   -- built-in variable names (e.g. `this`)
+    ['@variable.local']        = { fg = solarized.paleblue, style = 'italic' }, -- Not specified in nvim-treesitter but I like to make a distinction
 
-    ['@constant']              = { fg = solarized.purple },                   -- constant identifiers
-    ['@constant.builtin']      = { fg = solarized.purple, style = 'italic' }, -- built-in constant values
-    ['@constant.macro']        = { fg = solarized.blue },                     -- constants defined by the preprocessor
+    ['@constant']              = { fg = solarized.purple },                     -- constant identifiers
+    ['@constant.builtin']      = { fg = solarized.purple, style = 'italic' },   -- built-in constant values
+    ['@constant.macro']        = { fg = solarized.blue },                       -- constants defined by the preprocessor
 
-    ['@namespace']             = { fg = solarized.purple },                   -- modules or namespaces
-    ['@symbol']                = { fg = solarized.purple },                   -- symbols or atoms
+    ['@namespace']             = { fg = solarized.purple },                     -- modules or namespaces
+    ['@symbol']                = { fg = solarized.purple },                     -- symbols or atoms
 
     -- Text
     -- Mainly for markup languages.
@@ -90,7 +91,7 @@ local syntax = {
     ['@text.strike']           = { fg = solarized.text, style = 'strikethrough' }, -- strikethrough text
     ['@text.title']            = { fg = solarized.paleblue, style = 'bold' },      -- text that is part of a title
     ['@text.quote']            = { fg = solarized.text, style = 'italic' },        -- text quotations
-    ['@text.uri']              = { fg = solarized.link },                          -- URIs (e.g. hyperlinks)
+    ['@text.uri']              = { fg = solarized.link, style = 'underline' },     -- URIs (e.g. hyperlinks)
     ['@text.math']             = { fg = solarized.text },                          -- math environments (e.g. `$ ... $` in LaTeX)
     ['@text.environment']      = { fg = solarized.text },                          -- text environments of markup languages
     ['@text.environment.name'] = { fg = solarized.text },                          -- text indicating the type of an environment
@@ -106,6 +107,13 @@ local syntax = {
 
     ['@text.diff.add']         = { fg = solarized.green },                         -- added text (for diff files)
     ['@text.diff.delete']      = { fg = solarized.red },                           -- deleted text (for diff files)
+
+    -- Additional title markup
+    ['@text.title.1']          = { fg = solarized.cyan, style = 'bold' },
+    ['@text.title.2']          = { fg = solarized.red, style = 'bold' },
+    ['@text.title.3']          = { fg = solarized.green, style = 'bold' },
+    ['@text.title.4']          = { fg = solarized.purple, style = 'bold' },
+    ['@text.title.5']          = { fg = solarized.yellow, style = 'bold' },
 
     -- Tags
     -- Used for XML-like tags.
